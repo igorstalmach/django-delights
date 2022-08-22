@@ -20,7 +20,53 @@
             <tr>
                 <td>{{ ingredient.name }}</td>
                 <td>{{ ingredient.quantity }} {{ ingredient.unit }}</td>
-                <td>{{ ingredient.price_per_unit|stringformat:".2f" }}</td>
+                <td>${{ ingredient.price_per_unit|stringformat:".2f" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Recipes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Requirements</th>
+                <th>Price per unit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in recipes %}
+            <tr>
+                <td>{{ recipe.name }}</td>
+                <td class="flush_left">
+                    <ul>
+                        {% for requirement in recipe.reciperequirement_set.all %}
+                        <li>{{ requirement.ingredient.name }}, Qty {{ requirement.quantity }} {{ requirement.unit }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>${{ recipe.price|stringformat:".2f" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Purchases</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for purchase in purchases %}
+            <tr>
+                <td>{{ purchase.item }}</td>
+                <td>{{ purchase.quantity }}x</td>
+                <td>{{ purchase.date }}</td>
             </tr>
             {% endfor %}
         </tbody>

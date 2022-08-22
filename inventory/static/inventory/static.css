@@ -1,21 +1,28 @@
 /* GENERAL */
 
+:root {
+    --header-color: #4F695A;
+    --text-color: #47913D;
+    --table-elem-color: #306948;
+    --background-color: #B4EDCC;
+}
+
 * {
-    background-color: #B4EDCC;
+    background-color: var(--background-color);
 }
 
 p {
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    color: #306948;
+    color: var(--table-elem-color);
 }
 
 h2 {
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-weight: 900;
     margin: 10px;
-    color: #4F695A;
+    color: var(--header-color);
 }
 
 /* base.html */
@@ -28,7 +35,7 @@ h2 {
 }
 
 #logo {
-    color: #4F695A;
+    color: var(--header-color);
     font-family: 'Racing Sans One', cursive;
     font-size: 60px;
     grid-area: 1 / 3 / 2 / 4;
@@ -44,6 +51,7 @@ h2 {
 #message {
     justify-self: start;
     grid-area: 2 / 2 / 3 / 4;
+    color: var(--text-color);
 }
 
 .option {
@@ -62,12 +70,42 @@ h2 {
 }
 
 .btn {
-    color: #306948;
+    color: var(--table-elem-color);
     text-decoration: none;
-    background-color: #B4EDCC;
+    background-color: var(--background-color);
     padding: 0 15px 2px 15px;
     border-radius: 25px;
-    box-shadow: 0 3px 0 #4F695A;
+    box-shadow: 0 3px 0 var(--header-color);
 }
 
 /* home.html */
+
+.home {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+table {
+    table-layout: fixed;
+    width: 60%;
+    background-color: var(--table-elem-color);
+}
+
+th,
+td {
+    font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-align: center;
+}
+
+th {
+    font-style: italic;
+    color: var(--header-color);
+}
+
+.flush_left {
+    text-align: left;
+}

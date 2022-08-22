@@ -10,6 +10,6 @@ class HomePageView(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['ingredients'] = Ingredient.objects.all()
-        context['recipe'] = Recipe.objects.all()
+        context['recipes'] = Recipe.objects.all()
         context['purchases'] = Purchase.objects.all()
         return context
