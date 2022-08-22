@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Django Delights{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'inventory/style.css' %}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Racing+Sans+One&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="head">
+            <h1 id="logo">DJANGO DELIGHTS</h1>
+            {% if user.is_authenticated %}
+                <p>Log Out</p>
+            {% else %}
+                <p>Log In</p>
+            {% endif %}
+        </div>
+        {% if user.is_authenticated %}
+        <div class="nav">
+            <p>How's your day, {{ user.username }}?</p>
+            <div class="menu">
+                <p>Recipes</p>
+                <p>Ingredients</p>
+                <p>Purchases</p>
+            </div>
+        </div>
+        {% endif %}
+    </header>
+    <main>
+        {% block content %}
+
+        {% endblock %}
+    </main>
+</body>
+</html>
