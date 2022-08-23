@@ -1,6 +1,8 @@
 # Django Delights
 ## A [Codecademy](https://www.codecademy.com/) final Django project, from "[Build Python Web Apps with Django](https://www.codecademy.com/learn/paths/build-python-web-apps-with-django)" Skill Path
 
+![A homepage image](images/homepage.png)
+
 ### Features
 TO-DO
 
