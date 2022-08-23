@@ -13,6 +13,7 @@
                 <th>Name</th>
                 <th>Requirements</th>
                 <th>Price per unit</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -33,6 +34,7 @@
     </table>
     <div class="neighbour-buttons">
         <a href="{% url 'add_recipe' %}" class="btn">Add recipe</a>
+        <a href="{% url 'add_recipe_req' %}" class="btn">Add recipe requirement</a>
         <a href="{% url 'home' %}" class="btn">Cancel</a>
     </div>
 </div>

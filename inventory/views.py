@@ -6,7 +6,7 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Sum
 from .models import Ingredient, Recipe, RecipeRequirement, Purchase
-from .forms import IngredientForm, RecipeForm, PurchaseForm
+from .forms import IngredientForm, RecipeRequirementForm, RecipeForm, PurchaseForm
 
 
 def log_out(request):
@@ -64,3 +64,9 @@ class AddRecipe(LoginRequiredMixin, CreateView):
     model = Recipe
     template_name = "inventory/add/add_recipe.html"
     form_class = RecipeForm
+
+
+class AddRecipeRequirement(LoginRequiredMixin, CreateView):
+    model = RecipeRequirement
+    template_name = "inventory/add/add_reciperequirement.html"
+    form_class = RecipeRequirementForm

@@ -45,7 +45,7 @@ class RecipeRequirement(models.Model):
         return f"{self.ingredient.name} required for {self.recipe.name}, Qty {self.quantity} {self.unit}"
 
     def get_absolute_url(self):
-        return "/requirements"
+        return "/recipes"
 
 
 class Purchase(models.Model):
