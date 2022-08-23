@@ -22,7 +22,7 @@
                 <td class="flush_left">
                     <ul>
                         {% for requirement in recipe.reciperequirement_set.all %}
-                        <li>{{ requirement.ingredient.name }}, Qty {{ requirement.quantity }} {{ requirement.unit }}</li>
+                        <li><a href="{% url 'update_recipe_req' requirement.id %}" class="table-a">{{ requirement.ingredient.name }}, Qty {{ requirement.quantity }} {{ requirement.unit }}</a></li>
                         {% endfor %}
                     </ul>
                 </td>

@@ -106,7 +106,7 @@ footer {
     align-self: end;
 }
 
-/* forms */
+/* FORMS */
 
 .form {
     display: flex;
@@ -121,7 +121,7 @@ footer {
     gap: 30px;
 }
 
-/* home.html */
+/* TABLES */
 
 table {
     table-layout: fixed;
@@ -134,12 +134,21 @@ table {
 }
 
 th,
-td {
+td,
+.table-a {
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: var(--text-color);
     text-align: center;
+}
+
+.table-a {
+    text-decoration: underline;
+}
+
+.table-a:hover {
+    color: var(--header-color)
 }
 
 th {
