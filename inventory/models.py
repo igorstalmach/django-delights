@@ -23,7 +23,6 @@ class Ingredient(models.Model):
         return "/ingredients"
 
 
-
 class Recipe(models.Model):
     name = models.CharField(max_length=30)
     price = models.FloatField(max_length=10)

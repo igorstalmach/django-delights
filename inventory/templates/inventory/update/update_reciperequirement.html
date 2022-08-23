@@ -13,6 +13,7 @@
         </form>
         <div class="neighbour-buttons">
             <button type="submit" form="update_recipe_req_form" class="btn">Update</button>
+            <a href="{% url 'delete_recipe_req' object.id %}" class="btn">Delete</a>
             <a href="{% url 'recipes' %}" class="btn">Cancel</a>
         </div>
     </div>

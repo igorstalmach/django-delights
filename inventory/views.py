@@ -1,5 +1,6 @@
 from django.shortcuts import redirect
 from django.contrib.auth import logout
+from django.urls import reverse_lazy
 from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -50,6 +51,12 @@ class UpdateIngredient(LoginRequiredMixin, UpdateView):
     form_class = IngredientForm
 
 
+class DeleteIngredient(LoginRequiredMixin, DeleteView):
+    model = Ingredient
+    template_name = "inventory/delete/delete_confirm.html"
+    success_url = reverse_lazy("ingredients")
+
+
 class ViewPurchase(LoginRequiredMixin, ListView):
     model = Purchase
     template_name = "inventory/list/list_purchases.html"
@@ -65,6 +72,12 @@ class UpdatePurchase(LoginRequiredMixin, UpdateView):
     model = Purchase
     template_name = "inventory/update/update_purchase.html"
     form_class = PurchaseForm
+
+
+class DeletePurchase(LoginRequiredMixin, DeleteView):
+    model = Purchase
+    template_name = "inventory/delete/delete_confirm.html"
+    success_url = reverse_lazy('purchases')
 
 
 class ViewRecipe(LoginRequiredMixin, ListView):
@@ -84,6 +97,12 @@ class UpdateRecipe(LoginRequiredMixin, UpdateView):
     form_class = RecipeForm
 
 
+class DeleteRecipe(LoginRequiredMixin, DeleteView):
+    model = Recipe
+    template_name = "inventory/delete/delete_confirm.html"
+    success_url = reverse_lazy('recipes')
+
+
 class AddRecipeRequirement(LoginRequiredMixin, CreateView):
     model = RecipeRequirement
     template_name = "inventory/add/add_reciperequirement.html"
@@ -94,3 +113,9 @@ class UpdateRecipeRequirement(LoginRequiredMixin, UpdateView):
     model = RecipeRequirement
     template_name = "inventory/update/update_reciperequirement.html"
     form_class = RecipeRequirementForm
+
+
+class DeleteRecipeRequirement(LoginRequiredMixin, DeleteView):
+    model = RecipeRequirement
+    template_name = "inventory/delete/delete_confirm.html"
+    success_url = reverse_lazy('recipes')

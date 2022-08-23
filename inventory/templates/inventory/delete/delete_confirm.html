@@ -1,0 +1,19 @@
+{% extends 'inventory/base.html' %}
+
+{% load static %}
+
+{% block title %}Confirm deletion{% endblock %}
+
+{% block content %}
+    <div class="form">
+        <h2>Are you sure you want to delete "{{ object }}"?</h2>
+        <form action="" method="POST" id="delete_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </form>
+        <div class="neighbour-buttons">
+            <button type="submit" form="delete_form" class="btn">Confirm</button>
+            <a href="{% url object.get_absolute_url|cut:"/" %}" class="btn">Cancel</a>
+        </div>
+    </div>
+{% endblock %}

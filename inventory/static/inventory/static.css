@@ -29,13 +29,6 @@ h2 {
     color: var(--header-color);
 }
 
-.center-table {
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    gap: 20px;
-}
-
 .btn {
     color: var(--table-elem-color);
     text-decoration: none;
@@ -121,6 +114,13 @@ footer {
     gap: 30px;
 }
 
+.neighbour-buttons-smaller {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
 /* TABLES */
 
 table {
@@ -131,6 +131,13 @@ table {
 
 #table-bigger {
     height: 60px;
+}
+
+.center-table {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 20px;
 }
 
 th,
