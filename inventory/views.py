@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from django.contrib.auth import logout
 from django.views.generic import ListView
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Sum
 from .models import Ingredient, Recipe, RecipeRequirement, Purchase
@@ -44,6 +44,12 @@ class AddIngredient(LoginRequiredMixin, CreateView):
     form_class = IngredientForm
 
 
+class UpdateIngredient(LoginRequiredMixin, UpdateView):
+    model = Ingredient
+    template_name = "inventory/update/update_ingredient.html"
+    form_class = IngredientForm
+
+
 class ViewPurchase(LoginRequiredMixin, ListView):
     model = Purchase
     template_name = "inventory/list/list_purchases.html"
@@ -55,6 +61,12 @@ class AddPurchase(LoginRequiredMixin, CreateView):
     form_class = PurchaseForm
 
 
+class UpdatePurchase(LoginRequiredMixin, UpdateView):
+    model = Purchase
+    template_name = "inventory/update/update_purchase.html"
+    form_class = PurchaseForm
+
+
 class ViewRecipe(LoginRequiredMixin, ListView):
     model = Recipe
     template_name = "inventory/list/list_recipes.html"
@@ -63,6 +75,12 @@ class ViewRecipe(LoginRequiredMixin, ListView):
 class AddRecipe(LoginRequiredMixin, CreateView):
     model = Recipe
     template_name = "inventory/add/add_recipe.html"
+    form_class = RecipeForm
+
+
+class UpdateRecipe(LoginRequiredMixin, UpdateView):
+    model = Recipe
+    template_name = "inventory/update/update_recipe.html"
     form_class = RecipeForm
 
 

@@ -1,0 +1,19 @@
+{% extends 'inventory/base.html' %}
+
+{% load static %}
+
+{% block title %}Update purchase - Django Delights{% endblock %}
+
+{% block content %}
+    <div class="form">
+        <h2>Update purchase</h2>
+        <form action="" method="POST" id="update_purchase_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+        </form>
+        <div class="neighbour-buttons">
+            <button type="submit" form="update_purchase_form" class="btn">Update</button>
+            <a href="{% url 'purchases' %}" class="btn">Cancel</a>
+        </div>
+    </div>
+{% endblock %}

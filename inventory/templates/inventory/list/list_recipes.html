@@ -13,12 +13,11 @@
                 <th>Name</th>
                 <th>Requirements</th>
                 <th>Price per unit</th>
-                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for recipe in object_list %}
-            <tr>
+            <tr id="table-bigger">
                 <td>{{ recipe.name }}</td>
                 <td class="flush_left">
                     <ul>
@@ -28,6 +27,7 @@
                     </ul>
                 </td>
                 <td>${{ recipe.price|stringformat:".2f" }}</td>
+                <td><a href="{% url 'update_recipe' recipe.id %}" class="btn">Update</a></td>
             </tr>
             {% endfor %}
         </tbody>

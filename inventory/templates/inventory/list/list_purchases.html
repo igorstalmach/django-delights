@@ -18,11 +18,12 @@
         </thead>
         <tbody>
             {% for purchase in object_list %}
-            <tr>
+            <tr id="table-bigger">
                 <td>{{ purchase.item.name }}</td>
                 <td>{{ purchase.quantity }}x</td>
                 <td>${{ purchase.item.price }}</td>
                 <td>{{ purchase.date }}</td>
+                <td><a href="{% url 'update_purchase' purchase.id %}" class="btn">Update</a></td>
             </tr>
             {% endfor %}
         </tbody>

@@ -44,6 +44,11 @@ h2 {
     border-radius: 25px;
     box-shadow: 0 3px 0 var(--header-color);
     border: 0px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #98D6A0;
 }
 
 /* base.html */
@@ -122,6 +127,10 @@ table {
     table-layout: fixed;
     width: 60%;
     background-color: var(--table-elem-color);
+}
+
+#table-bigger {
+    height: 60px;
 }
 
 th,

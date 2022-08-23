@@ -17,10 +17,11 @@
         </thead>
         <tbody>
             {% for ingredient in object_list %}
-            <tr>
+            <tr id="table-bigger">
                 <td>{{ ingredient.name }}</td>
                 <td>{{ ingredient.quantity }} {{ ingredient.unit }}</td>
                 <td>${{ ingredient.price_per_unit|stringformat:".2f" }}</td>
+                <td><a href="{% url 'update_ingredient' ingredient.id %}" class="btn">Update</a></td>
             </tr>
             {% endfor %}
         </tbody>
