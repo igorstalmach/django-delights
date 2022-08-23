@@ -5,11 +5,13 @@ from django.views.generic import ListView
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.db.models import Sum
 from .models import Ingredient, Recipe, RecipeRequirement, Purchase
 from .forms import IngredientForm, RecipeRequirementForm, RecipeForm, PurchaseForm
 
 
+@login_required
 def log_out(request):
     logout(request)
     return redirect("/")
