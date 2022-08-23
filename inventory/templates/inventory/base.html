@@ -13,12 +13,12 @@
         <div class="head">
             <h1 id="logo">DJANGO DELIGHTS</h1>
             {% if user.is_authenticated %}
-            <p class="log_btn">Log Out</p>
+            <a id="log_btn" class="btn" href="{% url 'logout' %}">Log Out</a>
             <p id="message">How's your day, {{ user.username }}?</p>
             <div class="option">
-                <p>Recipes</p>
-                <p>Ingredients</p>
-                <p>Purchases</p>
+                <a class="btn">Recipes</a>
+                <a class="btn">Ingredients</a>
+                <a class="btn">Purchases</a>
             </div>
             {% endif %}
     </header>
