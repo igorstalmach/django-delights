@@ -114,13 +114,6 @@ footer {
     gap: 30px;
 }
 
-.neighbour-buttons-smaller {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-}
-
 /* TABLES */
 
 table {

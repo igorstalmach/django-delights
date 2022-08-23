@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.contrib.auth import logout
 from django.urls import reverse_lazy
 from django.views.generic import ListView
@@ -14,7 +14,11 @@ from .forms import IngredientForm, RecipeRequirementForm, RecipeForm, PurchaseFo
 @login_required
 def log_out(request):
     logout(request)
-    return redirect("/")
+    return redirect("logout_view")
+
+
+def log_out_view(request):
+    return render(request, "registration/logout.html")
 
 
 class HomePageView(LoginRequiredMixin, TemplateView):
