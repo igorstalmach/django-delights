@@ -1,0 +1,36 @@
+{% extends 'inventory/base.html' %}
+
+{% block title %}Purchases - Django Delights{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="center-table">
+    <h2>Purchases</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for purchase in object_list %}
+            <tr>
+                <td>{{ purchase.item.name }}</td>
+                <td>{{ purchase.quantity }}x</td>
+                <td>${{ purchase.item.price }}</td>
+                <td>{{ purchase.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="neighbour-buttons">
+        <a href="{% url 'add_purchase' %}" class="btn">Add purchase</a>
+        <a href="{% url 'home' %}" class="btn">Cancel</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'inventory/base.html' %}
+
+{% block title %}Recipes - Django Delights{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="center-table">
+    <h2>Recipes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Requirements</th>
+                <th>Price per unit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for recipe in object_list %}
+            <tr>
+                <td>{{ recipe.name }}</td>
+                <td class="flush_left">
+                    <ul>
+                        {% for requirement in recipe.reciperequirement_set.all %}
+                        <li>{{ requirement.ingredient.name }}, Qty {{ requirement.quantity }} {{ requirement.unit }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>${{ recipe.price|stringformat:".2f" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="neighbour-buttons">
+        <a href="{% url 'add_recipe' %}" class="btn">Add recipe</a>
+        <a href="{% url 'home' %}" class="btn">Cancel</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -5,7 +5,23 @@
 {% block title %}Django Delights{% endblock %}
 
 {% block content %}
-<div class="home">
+<div class="center-table">
+    <h2>Revenue Report</h2>
+    <table>
+        <tr>
+            <th>Revenue</th>
+            <td>${{ revenue }}</td>
+          </tr>
+          <tr>
+            <th>Costs</th>
+            <td>${{ costs }}</td>
+          </tr>
+          <tr>
+            <th>Profit</th>
+            <td>${{ profit }}</td>
+          </tr>
+    </table>
+
     <h2>Ingredients</h2>
     <table>
         <thead>
@@ -58,14 +74,16 @@
             <tr>
                 <th>Name</th>
                 <th>Quantity</th>
+                <th>Price</th>
                 <th>Date</th>
             </tr>
         </thead>
         <tbody>
             {% for purchase in purchases %}
             <tr>
-                <td>{{ purchase.item }}</td>
+                <td>{{ purchase.item.name }}</td>
                 <td>{{ purchase.quantity }}x</td>
+                <td>${{ purchase.item.price }}</td>
                 <td>{{ purchase.date }}</td>
             </tr>
             {% endfor %}
