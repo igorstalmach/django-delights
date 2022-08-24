@@ -43,7 +43,7 @@ class HomePageView(LoginRequiredMixin, TemplateView):
         context['revenue'] = revenue
         context['costs'] = costs
         context['profit'] = revenue - costs
-        
+
         return context
 
 
