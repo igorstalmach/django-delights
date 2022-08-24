@@ -84,7 +84,7 @@
                 <td>{{ purchase.item.name }}</td>
                 <td>{{ purchase.quantity }}x</td>
                 <td>${{ purchase.item.price }}</td>
-                <td>{{ purchase.date }}</td>
+                <td>{{ purchase.date }} at {{ purchase.time }}</td>
             </tr>
             {% endfor %}
         </tbody>

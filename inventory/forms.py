@@ -1,4 +1,5 @@
 from django import forms
+from .widgets import DatePickerInput, TimePickerInput
 from .models import Ingredient, Recipe, RecipeRequirement, Purchase
 
 
@@ -18,6 +19,10 @@ class PurchaseForm(forms.ModelForm):
     class Meta:
         model = Purchase
         fields = '__all__'
+        widgets = {
+            'date': DatePickerInput(),
+            'time': TimePickerInput(),
+        }
 
 
 class RecipeRequirementForm(forms.ModelForm):

@@ -40,6 +40,12 @@ class HomePageView(LoginRequiredMixin, TemplateView):
         revenue = Purchase.objects.aggregate(revenue=Sum('item__price'))['revenue']
         costs = Ingredient.objects.aggregate(costs=Sum('price_per_unit'))['costs']
 
+        if revenue is None:
+            revenue = 0
+
+        if costs is None:
+            costs = 0
+
         context['revenue'] = revenue
         context['costs'] = costs
         context['profit'] = revenue - costs

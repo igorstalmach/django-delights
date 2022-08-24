@@ -49,11 +49,12 @@ class RecipeRequirement(models.Model):
 
 class Purchase(models.Model):
     item = models.ForeignKey(Recipe, on_delete=models.CASCADE)
-    date = models.DateTimeField(default=timezone.now)
+    date = models.DateField(default=timezone.now)
+    time = models.TimeField(default=timezone.now)
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
-        return f"{self.quantity}x {self.item.name} at {self.date}"
+        return f"{self.quantity}x {self.item.name} at {self.time}, {self.date}"
 
     def get_absolute_url(self):
         return "/purchases"
