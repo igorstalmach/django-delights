@@ -12,7 +12,7 @@ UNIT_CHOICES = [
 
 class Ingredient(models.Model):
     name = models.CharField(max_length=30)
-    quantity = models.IntegerField(default=0)
+    quantity = models.FloatField(default=0.0)
     unit = models.CharField(choices=UNIT_CHOICES, default="g", max_length=3)
     price_per_unit = models.FloatField(max_length=10)
 
@@ -37,7 +37,7 @@ class Recipe(models.Model):
 class RecipeRequirement(models.Model):
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
-    quantity = models.IntegerField(default=0)
+    quantity = models.FloatField(default=0.0)
     unit = models.CharField(choices=UNIT_CHOICES, default="g", max_length=3)
 
     def __str__(self):

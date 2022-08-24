@@ -7,7 +7,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
-from django.db.models import Sum
+from django.db.models import Sum, F
 from .models import Ingredient, Recipe, RecipeRequirement, Purchase
 from .forms import IngredientForm, RecipeRequirementForm, RecipeForm, PurchaseForm
 
@@ -37,8 +37,8 @@ class HomePageView(LoginRequiredMixin, TemplateView):
         context['recipes'] = Recipe.objects.all()
         context['purchases'] = Purchase.objects.all()
 
-        revenue = Purchase.objects.aggregate(revenue=Sum('item__price'))['revenue']
-        costs = Ingredient.objects.aggregate(costs=Sum('price_per_unit'))['costs']
+        revenue = Purchase.objects.aggregate(revenue=Sum(F('item__price') * F('quantity')))['revenue']
+        costs = Ingredient.objects.aggregate(costs=Sum(F('price_per_unit') * F('quantity')))['costs']
 
         if revenue is None:
             revenue = 0
