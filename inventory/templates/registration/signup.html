@@ -1,0 +1,16 @@
+{% extends 'inventory/base.html' %}
+
+{% block title %}Sign up - Django Delights{% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="form">
+    <h2>Sign Up</h2>
+    <form action="" method="POST" id="signup_form">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+    <button type="submit" form="signup_form" class="btn">Sign up</button>
+</div>
+{% endblock %}

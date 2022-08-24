@@ -12,5 +12,9 @@
         {{ form.as_p }}
     </form>
     <button type="submit" form="login_form" class="btn">Login</button>
+    <div class="neighbour-buttons" style="margin-top: 20px;">
+        <p>Don't have an account yet?</p>
+        <a href="{% url 'signup' %}" class="btn">Sign up</a>
+    </div>
 </div>
 {% endblock %}

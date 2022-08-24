@@ -6,6 +6,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 from django.db.models import Sum
 from .models import Ingredient, Recipe, RecipeRequirement, Purchase
 from .forms import IngredientForm, RecipeRequirementForm, RecipeForm, PurchaseForm
@@ -14,11 +15,17 @@ from .forms import IngredientForm, RecipeRequirementForm, RecipeForm, PurchaseFo
 @login_required
 def log_out(request):
     logout(request)
-    return redirect("logout_view")
+    return redirect('logout_view')
 
 
 def log_out_view(request):
-    return render(request, "registration/logout.html")
+    return render(request, 'registration/logout.html')
+
+
+class SignUpView(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = "registration/signup.html"
 
 
 class HomePageView(LoginRequiredMixin, TemplateView):
