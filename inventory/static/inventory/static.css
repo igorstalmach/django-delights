@@ -135,11 +135,11 @@ svg {
 table {
     table-layout: fixed;
     width: 60%;
-    box-shadow: 0 9px 32px 0 var(--darker-color);
+    box-shadow: 0 9px 30px 0 var(--darker-color);
     margin-bottom: 15px;
     border-collapse: collapse;
     border: 2px solid;
-    border-radius: 1em;
+    border-radius: 10px;
     overflow: hidden;
 }
 
