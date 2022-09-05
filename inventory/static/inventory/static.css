@@ -3,12 +3,12 @@
 :root {
     --header-color: #4F695A;
     --text-color: #47913D;
-    --table-elem-color: #306948;
+    --darker-color: #306948;
     --background-color: #B4EDCC;
     --button-color: #B1FAE3;
 }
 
-* {
+body {
     background-color: var(--background-color);
 }
 
@@ -18,8 +18,32 @@ a,
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-size: 20px;
     font-weight: 400;
-    color: var(--table-elem-color);
+    color: var(--darker-color);
     text-decoration: none;
+}
+
+.btn {
+    color: var(--darker-color);
+    text-decoration: none;
+    background-color: var(--button-color);
+    padding: 0 15px 2px 15px;
+    border-radius: 25px;
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    box-shadow: 0 10px 16px 0 var(--darker-color);
+}
+
+.btn:hover {
+    background-color: #98D6A0;
+    transform: translateY(-2px);
+}
+
+button {
+    border: 0;
+}
+
+button:hover {
+    transform: translateY(-2px);
 }
 
 h2 {
@@ -27,21 +51,6 @@ h2 {
     font-weight: 900;
     margin: 10px;
     color: var(--header-color);
-}
-
-.btn {
-    color: var(--table-elem-color);
-    text-decoration: none;
-    background-color: var(--button-color);
-    padding: 0 15px 2px 15px;
-    border-radius: 25px;
-    box-shadow: 0 3px 0 var(--header-color);
-    border: 0;
-    cursor: pointer;
-}
-
-.btn:hover {
-    background-color: #98D6A0;
 }
 
 /* base.html */
@@ -79,7 +88,7 @@ h2 {
     gap: 40px;
 }
 
-#logo-a {
+#logo-anchor {
     text-decoration: none;
     grid-area: 1 / 3 / 2 / 4;
     justify-self: center;
@@ -97,6 +106,13 @@ footer {
     font-size: 15px;
     justify-self: center;
     align-self: end;
+}
+
+svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
 }
 
 /* FORMS */
@@ -119,11 +135,20 @@ footer {
 table {
     table-layout: fixed;
     width: 60%;
-    background-color: var(--table-elem-color);
+    box-shadow: 0 9px 32px 0 var(--darker-color);
+    margin-bottom: 15px;
+    border-collapse: collapse;
+    border: 2px solid;
+    border-radius: 1em;
+    overflow: hidden;
 }
 
 #table-bigger {
     height: 60px;
+}
+
+#table-smaller {
+    width: 400px;
 }
 
 .center-table {
@@ -135,19 +160,22 @@ table {
 
 th,
 td,
-.table-a {
+.table-requirements {
     font-family: 'Lato', 'Helvetica', 'Arial', sans-serif;
     font-size: 16px;
     font-weight: 400;
     color: var(--text-color);
+    background-color: var(--button-color);
     text-align: center;
+    border: 2px solid var(--background-color);
 }
 
-.table-a {
+.table-requirements {
     text-decoration: underline;
+    border: 0;
 }
 
-.table-a:hover {
+.table-requirements:hover {
     color: var(--header-color)
 }
 
