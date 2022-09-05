@@ -1,5 +1,5 @@
 from django import forms
-from .widgets import DatePickerInput, TimePickerInput
+from .widgets import DatePickerInput
 from .models import Ingredient, Recipe, RecipeRequirement, Purchase
 
 
@@ -21,7 +21,7 @@ class PurchaseForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'date': DatePickerInput(),
-            'time': TimePickerInput(),
+            'time': forms.TimeInput(format='%H:%M:%S'),
         }
 
 

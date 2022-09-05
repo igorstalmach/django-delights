@@ -1,6 +1,5 @@
 from django.db import models
-from django.utils import timezone
-
+from django.utils import timezone, dateformat
 
 UNIT_CHOICES = [
         ("kg", "kg"),
@@ -50,7 +49,7 @@ class RecipeRequirement(models.Model):
 class Purchase(models.Model):
     item = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     date = models.DateField(default=timezone.now)
-    time = models.TimeField(default=timezone.now)
+    time = models.TimeField(default=dateformat.format(timezone.now(), 'H:m:s'))
     quantity = models.IntegerField(default=1)
 
     def __str__(self):
