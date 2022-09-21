@@ -12,10 +12,10 @@
 <body>
     <header>
         <div class="head">
-            <a href="{% url 'home' %}" id="logo-anchor"><h1 id="logo">DJANGO DELIGHTS</h1></a>
+            <a href="{% url 'home' %}"><h1>DJANGO DELIGHTS</h1></a>
             {% if user.is_authenticated %}
-            <a id="log_btn" class="btn" href="{% url 'logout' %}">Log Out</a>
-            <p id="message">How's your day, {{ user.username }}?</p>
+            <a id="logout_btn" class="btn" href="{% url 'logout' %}">Log Out</a>
+            <p>How's your day, {{ user.username }}?</p>
             <div class="option">
                 <a class="btn" href="{% url 'recipes' %}">Recipes</a>
                 <a class="btn" href="{% url 'ingredients' %}">Ingredients</a>
@@ -31,6 +31,6 @@
     </main>
 </body>
 <footer>
-    <p class="footer-text">2022, github.com/igorstalmach/</p>
+    <p>2022, github.com/igorstalmach/</p>
 </footer>
 </html>

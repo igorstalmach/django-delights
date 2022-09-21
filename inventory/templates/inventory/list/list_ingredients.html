@@ -18,7 +18,7 @@
         </thead>
         <tbody>
             {% for ingredient in object_list %}
-            <tr id="table-bigger">
+            <tr id="taller-table">
                 <td>{{ ingredient.name }}</td>
                 <td>{{ ingredient.quantity }} {{ ingredient.unit }}</td>
                 <td>${{ ingredient.price_per_unit|stringformat:".2f" }}</td>
