@@ -19,7 +19,7 @@
 
 ![Ingredient list](images/ingredients.png)
 
-#### Updating a ingredient
+#### Updating an ingredient
 
 ![Ingredient update](images/update.png)
 
